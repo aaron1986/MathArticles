@@ -16,10 +16,10 @@ function App() {
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
         />
-<Routes>
-  <Route path="/" element={<Navigate to="/mathArticles" />} />
-  <Route path="/mathArticles" element={<MathArticles searchTerm={searchTerm} />} />
-</Routes>
+        <Routes>
+        <Route path="/" element={<Navigate to="/mathArticles" />} />
+        <Route path="/mathArticles" element={<MathArticles searchTerm={searchTerm} />} />
+        </Routes>
       </Router>
     </>
   )

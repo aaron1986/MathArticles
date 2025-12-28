@@ -5,7 +5,6 @@ export default function Header() {
     <header>
       <nav>
         <ul id="nav-links">
-          <li><Link to="/">Home</Link></li>
           <li><Link to="/mathArticles">Math</Link></li>
           <li><Link to="/about">About</Link></li>
         </ul>
