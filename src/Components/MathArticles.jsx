@@ -5,20 +5,25 @@ export default function MathArticles({ searchTerm }) {
   const [articles, setArticles] = useState([]);
   const [filteredArticles, setFilteredArticles] = useState([]);
 
-  useEffect(() => {
-    fetch("src/assets/Excel_Files/MathArticles.csv")
-      .then((response) => response.text())
-      .then((csvText) => {
-        const workbook = XLSX.read(csvText, { type: "string" });
-        const firstSheetName = workbook.SheetNames[0];
-        const worksheet = workbook.Sheets[firstSheetName];
-        const jsonData = XLSX.utils.sheet_to_json(worksheet);
+useEffect(() => {
+  fetch("/Excel_Files/MathArticles.csv")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("CSV not found");
+      }
+      return response.text();
+    })
+    .then((csvText) => {
+      const workbook = XLSX.read(csvText, { type: "string" });
+      const sheetName = workbook.SheetNames[0];
+      const worksheet = workbook.Sheets[sheetName];
+      const jsonData = XLSX.utils.sheet_to_json(worksheet);
 
-        setArticles(jsonData);
-        setFilteredArticles(jsonData);
-      })
-      .catch((err) => console.error("Error loading CSV:", err));
-  }, []);
+      setArticles(jsonData);
+      setFilteredArticles(jsonData);
+    })
+    .catch((err) => console.error("Error loading CSV:", err));
+}, []);
 
   useEffect(() => {
     if (!searchTerm) {
