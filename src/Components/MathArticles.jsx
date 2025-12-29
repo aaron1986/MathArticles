@@ -6,7 +6,7 @@ export default function MathArticles({ searchTerm }) {
   const [filteredArticles, setFilteredArticles] = useState([]);
 
 useEffect(() => {
-  fetch("/public/MathArticles.csv")
+  fetch("/MathArticles.csv")
     .then((response) => {
       if (!response.ok) {
         throw new Error("CSV not found");
