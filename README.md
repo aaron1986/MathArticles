@@ -1,1 +1,1 @@
-![Wireframe Image](./img/wireframes_app.png)
+![Wireframe Image](./src/assets/img/wireframes_app.png)
