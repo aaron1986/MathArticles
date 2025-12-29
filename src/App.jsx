@@ -4,6 +4,8 @@ import './App.css'
 import Header from './Components/Header';
 import MathArticles from './Components/MathArticles';
 import SearchBar from './Components/SearchBar';
+import Contact from './Components/Contact';
+import About from './Components/About';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -19,6 +21,8 @@ function App() {
         <Routes>
         <Route path="/" element={<Navigate to="/mathArticles" />} />
         <Route path="/mathArticles" element={<MathArticles searchTerm={searchTerm} />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />}/>
         </Routes>
       </Router>
     </>
