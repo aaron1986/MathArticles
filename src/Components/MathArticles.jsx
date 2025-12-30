@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import * as XLSX from "xlsx";
 
 export default function MathArticles({ searchTerm }) {
@@ -13,14 +14,18 @@ useEffect(() => {
       }
       return response.text();
     })
-    .then((csvText) => {
-      const workbook = XLSX.read(csvText, { type: "string" });
-      const sheetName = workbook.SheetNames[0];
-      const worksheet = workbook.Sheets[sheetName];
-      const jsonData = XLSX.utils.sheet_to_json(worksheet);
+.then((csvText) => {
+  const workbook = XLSX.read(csvText, { type: "string" });
+  const sheetName = workbook.SheetNames[0];
+  const worksheet = workbook.Sheets[sheetName];
+  const jsonData = XLSX.utils.sheet_to_json(worksheet);
+    const articlesWithId = jsonData.map((article, index) => ({
+    ...article,
+    id: index
+  }));
 
-      setArticles(jsonData);
-      setFilteredArticles(jsonData);
+  setArticles(articlesWithId);
+  setFilteredArticles(articlesWithId);
     })
     .catch((err) => console.error("Error loading CSV:", err));
 }, []);
@@ -46,19 +51,26 @@ useEffect(() => {
       <div className="article_title">Math Articles</div>
 
       <div className="articles_grid">
-        {filteredArticles.map((article, index) => (
-          <div className="article_card" key={index}>
-            {article["Image Link"] && (
-              <img
-                className="card_image"
-                src={article["Image Link"]}
-                alt={article.Titles}
-              />
-            )}
-            <h2 className="article_heading">{article.Titles}</h2>
-            <p className="article_description">{article.Description}</p>
-          </div>
-        ))}
+        {filteredArticles.map((article) => (
+  <Link
+    to={`/articles/${article.id}`}
+    className="article_link"
+    key={article.id}
+  >
+    <div className="article_card">
+      {article["Image Link"] && (
+        <img
+          className="card_image"
+          src={article["Image Link"]}
+          alt={article.Titles}
+        />
+      )}
+      <h2 className="article_heading">{article.Titles}</h2>
+      <p className="article_description">{article.Description}</p>
+    </div>
+  </Link>
+))}
+
 
         {filteredArticles.length === 0 && (
           <p>No articles found.</p>
