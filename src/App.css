@@ -53,6 +53,7 @@ nav {
   text-decoration: none;
   font-family: navFont;
   transition: color 0.3s ease;
+  font-size: x-large;
 }
 
 #nav-links li a:hover,
@@ -173,7 +174,6 @@ nav {
   align-items: center;
 }
 
-/*** SEARCH ICON ***/
 .search {
   display: inline-block;
   position: relative;
@@ -188,7 +188,6 @@ nav {
   cursor: text;
 }
 
-/* Handle */
 .search::after {
   content: "";
   position: absolute;
@@ -202,20 +201,17 @@ nav {
   transition: all 200ms ease;
 }
 
-/* Expand */
 .search.active,
 .search:hover {
   width: 200px;
   margin-right: 0;
 }
 
-/* Remove handle when active */
 .search.active::after,
 .search:hover::after {
   height: 0;
 }
 
-/*** INPUT ***/
 .search input {
   width: 100%;
   border: none;
@@ -230,8 +226,8 @@ nav {
 /*BACK BTN */
 
 
+
 /* CONTACT FORM */
-/* PAGE WRAPPER */
 .contact-page {
   display: flex;
   justify-content: center;
@@ -239,7 +235,6 @@ nav {
   padding: 2rem 1rem;
 }
 
-/* CONTACT FORM */
 .contact-container{
   display: flex;
   justify-content: center;
