@@ -7,6 +7,11 @@ export default function Contact() {
     message: ""
   });
 
+  const handleSubmit = (event) => {
+  //event.preventDefault(); 
+  console.log("Form submitted with:", formData);
+};
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prev) => ({
@@ -23,10 +28,11 @@ export default function Contact() {
         <form
           className="contact-form"
           name="contact"
-          method="POST"
           action="/success"
+          method="POST"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
+          onSubmit={handleSubmit}
         >
           <input type="hidden" name="form-name" value="contact" />
           <input type="hidden" name="bot-field" />
