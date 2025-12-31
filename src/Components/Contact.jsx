@@ -46,19 +46,60 @@ export default function Contact() {
   };
 
   return (
-    <form
-      name="contact"
-      method="POST"
-      data-netlify="true"
-      onSubmit={handleSubmit}
-    >
-      <input type="hidden" name="form-name" value="contact" />
+    <>
+    <div className="article_title">Contact Page</div>
+    <div className="contact-page">
+      <div className="contact-container">
+        <form
+          className="contact-form"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          onSubmit={handleSubmit}
+        >
+          <input type="hidden" name="form-name" value="contact" />
 
-      <input name="name" value={formData.name} onChange={handleChange} />
-      <input name="email" value={formData.email} onChange={handleChange} />
-      <textarea name="message" value={formData.message} onChange={handleChange} />
+          <div className="form-group">
+            <label htmlFor="name">Name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-      <button type="submit">Send</button>
-    </form>
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <button type="submit" className="submit-btn">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+    </>
   );
 }

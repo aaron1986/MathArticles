@@ -1,7 +1,7 @@
 export default function Success() {
     return (
           <div>
-            <h1>Thank you!</h1>
+            <div className="article_title">Thank you!</div>
             <p>Your message has been sent successfully.</p>
           </div>
 
