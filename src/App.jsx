@@ -7,6 +7,7 @@ import SearchBar from './Components/SearchBar';
 import Contact from './Components/Contact';
 import About from './Components/About';
 import ArticlePage from './Components/ArticlePage';
+import Success from './Components/Success';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -25,6 +26,7 @@ function App() {
         <Route path="/articles/:id" element={<ArticlePage />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />}/>
+        <Route path="/success" element={<Success />} />
         </Routes>
       </Router>
     </>
