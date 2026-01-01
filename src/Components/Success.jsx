@@ -6,7 +6,7 @@ export default function Success() {
             <div className="article_title">Thank you!</div>
             <p>Your message has been sent successfully.</p>
             <div>
-             <button onClick={() => navigate("/")}>
+             <button onClick={() => navigate("/")} className="button-29">
             Return Home
           </button>
             </div>

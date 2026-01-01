@@ -50,7 +50,7 @@ export default function ArticlePage() {
       </p>
 
       <div>
-        <button onClick={() => navigate(-1)}>Go Back</button>
+        <button onClick={() => navigate(-1)} className="button-29">Go Back</button>
       </div>
     </div>
 
